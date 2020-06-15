@@ -1,0 +1,43 @@
+zeki Sistemler notları:
+
+cross_validation: Eğitim verileri arasında model öğrenirken farklı seçenekler uygular.
+örneğin elinizde 10 veri bulunmakta bu verilerin 9 tanesi eğitim verisi olarak seçildi.
+1 tanesi ise test olarak seçildi.
+bunlar sonuçunda model öğrenmesi sağlandı. fakat bu eğitim verisi sadece 1 defa yapılması
+ durumu modelin doğru öğru sonuçlar vermesi için yeterli olmayabilir
+bunun için cross_validation 10 eğitim verisi arasında sırasıyla verilerden 
+1 tanesini test 9 tanesini eğitim verisi seçer ve modeli tekrar eğitir.
+bu tam 10 defa tekrar eder. amaç modelin tahmin gücünü artırmaktır.
+
+cross_validation zaman serilerinde farklı bir şekilde yapılır. bunun nedeni 
+zaman serileri kendinden bir önceki durumdan etkilenir.
+örneğin 2000 yılından 2020 yılına kadar üniversite öğrencilerinin matematik
+ testinde çıkardığı notların elinizde olduğunu düşünün.
+siz bu verileri kullanarak 2021 yılında matematik ortalama kaç net yapılacağını bulmak istiyorsunuz.
+bunu yapmak için modeli eğitmeniz lazım 
+
+cross_validation ı kullanırken random olarak çalışırsa yıllar içerisindeki veriyi gönderir.
+2019 daki verilere bakıp 2010 yılını tahmın etmeye çalışır.
+buda çok saçma olur haliyle.
+
+ bu nedenle öncelikle 2000 ile 2005 yılları arasındaki verileri gönderir. ve 2006 yı tahmin etmeye çalışır.
+ sonra 2000-2006 verilerini gönderir 2007 yi tahmin etmeye çalışır. bu istenilen veriye kadar artarak
+devam eder. modelin tahimn gücünü artırır.
+
+
+ kötü tahmin nedir: 
+ elinizde 3 tane sayı olduğunu düşünün bunlar:1-2-3 olsun.
+ sayılara bakarsınız birer birer artmış o zaman gelecek sayı da bir artar 4 olur.
+ bu bir tahmindir. ve dünyaca doğru kabul edilir.
+ peki sayıların ortalamasını alarak artığını düşünürsek?
+ o zaman 1+2+3=6
+ ortalama=6/4=1.5
+ model bunu gelecek sayı 3+1.5=4.5  olarak tahimn edebilir.
+ diğer gelecek sayıyı da aynı yöntemle bulabilir.
+ sürekli sayını ortalamasını alarak ilerleyebilir.
+ 
+ peki kötü tahmin olduğunu nasıl anlıycaz? 
+ test verileri bu işe yarar :D 
+
+ kötü tahmin modellerin başarı oranlarına göre belirlenir. eğer standart sapması rakibine göre yüksekse
+ kötü tahmin yapmıştır.
